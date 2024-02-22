@@ -1,0 +1,87 @@
+:root {
+  --ff: 'Roboto Mono', monospace;
+
+  --white: rgb(245, 245, 245);
+  --blue: #0062ff;
+  --pink: #8d7cff;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    var(--blue),
+    var(--pink) 30% 70%,
+    var(--blue)
+  );
+  font-family: var(--ff);
+  height: 100vh;
+  margin: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  gap: 1.5rem;
+  margin: 1rem;
+  display: flex;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -3px;
+  justify-content: center;
+}
+
+.board {
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.row + .row {
+  border-left: 3px solid var(--white);
+}
+
+.row .spot + .spot {
+  border-top: 3px solid var(--white);
+}
+
+.row {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.spot {
+  display: flex;
+  font-weight: 550;
+  font-size: 4em;
+  justify-content: center;
+  color: rgb(40, 40, 40);
+  padding: 2rem 2.5rem;
+  user-select: none;
+}
+
+.the-line {
+  /*
+  WHEN SMONE WINS
+  ANIMATE THE WIDTH
+  TRANSLATE POSITION
+  ROTATE ACCORDING TO WIN 
+  */
+  height: 10px;
+  border-radius: 2em;
+  background-color: rgb(40, 40, 40);
+  position: absolute;
+  z-index: 99;
+}
+
+.info:not(:empty) {
+  margin: 0.5rem;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
