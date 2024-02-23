@@ -6,7 +6,7 @@ let current = 0;
 
 for (let spot of spots) {
   spot.addEventListener('click', () => {
-    if (spot.innerHTML == '&nbsp;') {
+    if (spot.innerHTML == '') {
       spot.innerHTML = players[current];
       board[spots.indexOf(spot) % 3][Math.floor(spots.indexOf(spot) / 3)] =
         players[current];
@@ -17,10 +17,32 @@ for (let spot of spots) {
       if (state) {
         spots.forEach((x) => (x.style.pointerEvents = 'none'));
         info.innerHTML = 'The winner is....' + state;
+        info.animate(
+          {
+            transform: ['scale(1)', 'scale(0.9)', 'scale(1)'],
+          },
+          {
+            duration: 250,
+            easing: 'ease-in',
+          }
+        );
       }
     }
   });
 }
+
+document.querySelector('.reset').addEventListener('click', () => {
+  board = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ];
+
+  for (let spot of spots) {
+    spot.innerHTML = '';
+    spot.style.pointerEvents = '';
+  }
+});
 
 // the game
 let board = [

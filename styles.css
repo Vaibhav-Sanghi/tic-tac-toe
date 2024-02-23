@@ -7,35 +7,39 @@
 }
 
 body {
+  margin: 0;
+  font-family: var(--ff);
+  box-sizing: border-box;
   background: linear-gradient(
     135deg,
     var(--blue),
     var(--pink) 30% 70%,
     var(--blue)
   );
-  font-family: var(--ff);
-  height: 100vh;
-  margin: 0;
 
+  height: 100vh;
   display: grid;
   place-content: center;
+  overflow: hidden;
 }
 
 h1 {
-  gap: 1.5rem;
   margin: 1rem;
-  display: flex;
-  font-size: 5rem;
   font-weight: 700;
   color: var(--white);
-  letter-spacing: -3px;
-  justify-content: center;
+  letter-spacing: -5px;
+  text-align: center;
+  font-size: min(5rem, 12.5vw);
 }
 
 .board {
+  width: min(75vw, 52.5vh);
+
   padding: 1.5rem 2rem;
   border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.4);
+  margin-inline: auto;
+  aspect-ratio: 1/1.05;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,11 +61,11 @@ h1 {
 
 .spot {
   display: flex;
-  font-weight: 550;
-  font-size: 4em;
+  font-weight: 500;
+  font-size: 3.75rem;
   justify-content: center;
+  align-items: center;
   color: rgb(40, 40, 40);
-  padding: 2rem 2.5rem;
   user-select: none;
 }
 
@@ -79,9 +83,24 @@ h1 {
   z-index: 99;
 }
 
-.info:not(:empty) {
-  margin: 0.5rem;
-  padding: 1rem 2.5rem;
-  border-radius: 2rem;
+.options {
+  margin-block: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.reset,
+.info {
   background-color: rgba(255, 255, 255, 0.4);
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  width: 30%;
+  font-size: 1rem;
+}
+
+.info {
+  width: 45%;
 }
