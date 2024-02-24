@@ -42,6 +42,8 @@ document.querySelector('.reset').addEventListener('click', () => {
     spot.innerHTML = '';
     spot.style.pointerEvents = '';
   }
+
+  info.innerHTML = '';
 });
 
 // the game
